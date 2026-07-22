@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SAMPLE LEDGER — what a working desk looks like</title>
+<meta name="description" content="A sample of the promoter dashboard: 18 months of example data — thousands of sales, monthly PayPal batches, live maturation. Example only; your desk starts at zero.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="SAMPLE LEDGER — what a working desk looks like">
+<meta property="og:description" content="18 months of example data on the promoter dashboard: compounding sales, monthly PayPal batches. Illustration only — your desk starts at zero, and today is day one.">
+<meta property="og:image" content="https://desk.defimagic.io/og/desk.png">
+<meta property="og:url" content="https://desk.defimagic.io/demo/">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.png">
+<style>
+  :root {
+    --bg:#0b0f14; --panel:#111823; --panel2:#182230; --ink:#eef3f8; --dim:#8fa0b3;
+    --green:#3ddc84; --amber:#ffb454; --red:#ff6b6b; --line:#1f2c3d; --line2:#2a3a50;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:var(--bg); color:var(--ink); min-height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(ellipse 90% 40% at 50% -5%, #14243a 0%, transparent 60%);
+  }
+  .wrap { width:min(680px,92vw); margin:0 auto; padding:26px 0 80px; }
+  a { color:var(--green); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; }
+  .brand .name .r { color:var(--green); }
+  .brand a.back { font-size:12.5px; font-weight:700; color:var(--dim); }
+
+  .ribbon { background:#ffb45418; border:1px solid var(--amber); color:var(--ink); border-radius:12px;
+            padding:11px 14px; font-size:13px; margin-top:22px; }
+  .ribbon b { color:var(--amber); letter-spacing:.06em; }
+
+  .idrow { display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap; margin:26px 0 6px; }
+  .idrow .who { font-size:clamp(22px,4.6vw,30px); font-weight:900; letter-spacing:-.02em; }
+  .idrow .who span { color:var(--green); }
+  .idrow .code { font-size:13px; font-weight:800; color:var(--dim); letter-spacing:.1em; }
+  .idrow .code b { color:var(--green); }
+  .since { color:var(--dim); font-size:13.5px; }
+
+  .kpis { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:18px; }
+  @media (max-width:560px){ .kpis { grid-template-columns:repeat(2,1fr); } }
+  .kpi { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px; }
+  .kpi .v { font-size:clamp(18px,4vw,24px); font-weight:900; letter-spacing:-.02em; }
+  .kpi .v.green { color:var(--green); }
+  .kpi .v.amber { color:var(--amber); }
+  .kpi .k { font-size:11.5px; color:var(--dim); margin-top:3px; line-height:1.35; }
+
+  .sec { margin-top:30px; }
+  .sec > h2 { font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); margin-bottom:12px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px; }
+  .chartbox { position:relative; }
+  canvas { width:100%; height:auto; display:block; border-radius:10px; }
+  .legend { display:flex; gap:16px; font-size:11.5px; color:var(--dim); margin-top:8px; }
+  .legend .sw { display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:5px; vertical-align:-1px; }
+
+  table.t { width:100%; border-collapse:collapse; font-size:13.5px; }
+  table.t td { border-top:1px solid var(--line); padding:9px 8px 9px 0; }
+  table.t tr:first-child td { border-top:none; }
+  table.t .r { text-align:right; font-weight:800; }
+  table.t .g { color:var(--green); }
+  table.t .d { color:var(--dim); }
+  table.t .s { font-size:11px; font-weight:800; letter-spacing:.06em; color:var(--dim); }
+  table.t .s.paid { color:var(--green); }
+  table.t .s.mat { color:var(--amber); }
+
+  .why { font-size:14px; color:var(--dim); }
+  .why b { color:var(--ink); }
+
+  .cta-end { margin-top:34px; text-align:center; }
+  .cta-end a.big { display:block; background:var(--green); color:#06220f; font-weight:900; font-size:17px;
+                   padding:16px; border-radius:12px; }
+  .cta-end a.big:hover { text-decoration:none; }
+  .cta-end .under { color:var(--dim); font-size:13px; margin-top:10px; }
+  .cta-end .under span { color:var(--green); font-weight:800; }
+
+  .fine { font-size:12px; color:var(--dim); margin-top:18px; line-height:1.6; }
+  .foot { text-align:center; color:var(--dim); font-size:12px; margin-top:44px; line-height:1.7; }
+  .foot a { color:var(--dim); text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <div class="name">THE <span class="r">REAL</span> DESK</div>
+    <a class="back" href="/">← the desk</a>
+  </div>
+
+  <div class="ribbon"><b>SAMPLE LEDGER</b> — example data for illustration, on the real dashboard layout. Not a real account, not typical results, not a promise. Every real desk starts at zero; how it grows is up to its owner.</div>
+
+  <div class="idrow">
+    <div class="who">SAMPLE <span>DESK</span></div>
+    <div class="code">CODE <b>SAMPLE7</b></div>
+  </div>
+  <div class="since" id="since">18 months on the desk · every number below computed with the live commission formula (50% of net per sale)</div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v green" id="k-life">—</div><div class="k">lifetime commission</div></div>
+    <div class="kpi"><div class="v" id="k-paid">—</div><div class="k">paid out to date <span id="k-batches"></span></div></div>
+    <div class="kpi"><div class="v green" id="k-payable">—</div><div class="k">payable now — next monthly batch</div></div>
+    <div class="kpi"><div class="v amber" id="k-mat">—</div><div class="k">maturing (30-day window)</div></div>
+    <div class="kpi"><div class="v" id="k-people">—</div><div class="k">people brought</div></div>
+    <div class="kpi"><div class="v" id="k-buyers">—</div><div class="k">who became buyers</div></div>
+  </div>
+
+  <div class="sec">
+    <h2>Commission by month — 18 months</h2>
+    <div class="card chartbox">
+      <canvas id="chart" width="1240" height="520"></canvas>
+      <div class="legend">
+        <span><span class="sw" style="background:var(--green)"></span>commission per month</span>
+        <span><span class="sw" style="background:var(--amber)"></span>cumulative</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Why it compounds</h2>
+    <div class="card why">
+      <p><b>Three gears turn at once.</b> New people keep arriving through your link. Everyone you've brought keeps paying you on everything they buy for their first 90 days. And buyers repeat — party packs get bought again for the next game night. Month one is slow — the sample's first month was a handful of sales. The curve is what consistency looks like when every sale pays and nothing is capped.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Payout history — monthly PayPal batches</h2>
+    <div class="card">
+      <table class="t" id="batches"></table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Recent activity</h2>
+    <div class="card">
+      <table class="t" id="activity"></table>
+    </div>
+  </div>
+
+  <div class="cta-end">
+    <a class="big" href="/#join">This ledger started at zero. Yours starts today — free →</a>
+    <div class="under">60 seconds · $0 to join · no paperwork — Small. Real. <span>Paid.</span></div>
+  </div>
+
+  <p class="fine">This is a sample: example data rendered on the real dashboard layout so you can see how the desk reports referred people, sales at any ticket size, 30-day maturation, and monthly PayPal batches from Leafwind Studios Ltd (UK company no. <a href="https://find-and-update.company-information.service.gov.uk/company/17252962" rel="noopener">17252962</a>). It is not a real account and not a forecast. Earnings depend on your effort — no specific income is promised. 18+.</p>
+
+  <div class="foot">
+    Part of <a href="/">THE REAL DESK</a> · <a href="/check/">Deal Check</a> · <a href="/math/">The Math</a> · <a href="/sheet/">Deal Sheet</a> · <a href="/kit/">Drop Kit</a><br>
+    The Hive — powered by AI.
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (cents) {
+    var d = (cents / 100).toFixed(2);
+    return "$" + d.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  // The LIVE commission formula, verbatim from the program engine:
+  // fee = round(amount*0.029)+30 ; commission = round((amount-fee)/2)
+  var comm = function (c) { var fee = Math.round(c * 0.029) + 30; return Math.max(0, Math.round((c - fee) / 2)); };
+
+  // ── Deterministic sample data ──────────────────────────────────────────────
+  // 18 months of sales, growing with consistent work. Ticket mix across the
+  // real range ($0.99–$19.99). Same output for every visitor, every visit.
+  var SALES = [12, 18, 27, 40, 55, 75, 100, 130, 170, 215, 270, 330, 395, 460, 520, 560, 590, 610];
+  var MIX = [ // [cents, share]
+    [99, 0.10], [199, 0.30], [499, 0.38], [999, 0.16], [1999, 0.06]
+  ];
+  var PER = MIX.map(function (m) { return [comm(m[0]), m[1]]; });
+
+  function monthCommission(n) { // integer cents, deterministic split
+    var total = 0, used = 0;
+    for (var i = 0; i < PER.length; i++) {
+      var cnt = (i === PER.length - 1) ? (n - used) : Math.round(n * PER[i][1]);
+      used += cnt;
+      total += cnt * PER[i][0];
+    }
+    return total;
+  }
+
+  var monthly = SALES.map(monthCommission);
+  var lifetime = monthly.reduce(function (a, b) { return a + b; }, 0);
+  var totalSales = SALES.reduce(function (a, b) { return a + b; }, 0);
+
+  // Maturation model for the sample: the last month is still maturing; 40% of
+  // the month before sits payable (matured, awaiting the next batch); all
+  // earlier months have been paid in monthly batches.
+  var maturing = monthly[17];
+  var payable = Math.round(monthly[16] * 0.4);
+  var paid = lifetime - maturing - payable;
+  var batches = monthly.slice(0, 16).concat([Math.round(monthly[16] * 0.6)]); // 17 paid batches
+
+  // People: buyers convert from people brought; sales/buyer ≈ repeat packs.
+  var buyers = 1650, people = 3400;
+
+  $("k-life").textContent = money(lifetime);
+  $("k-paid").textContent = money(paid);
+  $("k-batches").textContent = "· " + batches.length + " PayPal batches";
+  $("k-payable").textContent = money(payable);
+  $("k-mat").textContent = money(maturing);
+  $("k-people").textContent = people.toLocaleString("en-US");
+  $("k-buyers").textContent = buyers.toLocaleString("en-US");
+  $("since").textContent = "18 months on the desk · " + totalSales.toLocaleString("en-US") +
+    " sales · every number computed with the live commission formula (50% of net per sale)";
+
+  // ── Chart ──────────────────────────────────────────────────────────────────
+  var cv = $("chart"), ctx = cv.getContext("2d");
+  var W = cv.width, H = cv.height, padL = 90, padR = 30, padT = 40, padB = 56;
+  var plotW = W - padL - padR, plotH = H - padT - padB;
+  ctx.fillStyle = "#0e141d"; ctx.fillRect(0, 0, W, H);
+
+  var maxM = Math.max.apply(null, monthly);
+  var cum = []; monthly.reduce(function (a, b, i) { return (cum[i] = a + b); }, 0);
+  var maxC = cum[cum.length - 1];
+
+  // gridlines
+  ctx.strokeStyle = "#1f2c3d"; ctx.lineWidth = 1; ctx.fillStyle = "#8fa0b3";
+  ctx.font = "600 20px -apple-system,Segoe UI,Roboto,Arial";
+  for (var g = 0; g <= 4; g++) {
+    var gy = padT + plotH - (plotH * g / 4);
+    ctx.beginPath(); ctx.moveTo(padL, gy); ctx.lineTo(W - padR, gy); ctx.stroke();
+    ctx.fillText("$" + Math.round(maxM * g / 4 / 100), 14, gy + 7);
+  }
+  // bars
+  var bw = plotW / monthly.length;
+  for (var i = 0; i < monthly.length; i++) {
+    var bh = plotH * monthly[i] / maxM;
+    ctx.fillStyle = "#3ddc84";
+    ctx.fillRect(padL + i * bw + bw * 0.18, padT + plotH - bh, bw * 0.64, bh);
+  }
+  // cumulative line
+  ctx.strokeStyle = "#ffb454"; ctx.lineWidth = 4; ctx.beginPath();
+  for (var j = 0; j < cum.length; j++) {
+    var x = padL + j * bw + bw / 2, y = padT + plotH - plotH * cum[j] / maxC;
+    if (j === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+  // month labels (sparse)
+  ctx.fillStyle = "#8fa0b3";
+  [0, 5, 11, 17].forEach(function (m) {
+    ctx.fillText("M" + (m + 1), padL + m * bw + bw / 2 - 14, H - 18);
+  });
+  // SAMPLE watermark
+  ctx.save();
+  ctx.translate(W / 2, H / 2); ctx.rotate(-0.18);
+  ctx.font = "900 92px -apple-system,Segoe UI,Roboto,Arial";
+  ctx.fillStyle = "rgba(255,180,84,0.10)";
+  ctx.textAlign = "center";
+  ctx.fillText("SAMPLE — EXAMPLE DATA", 0, 20);
+  ctx.restore();
+
+  // ── Payout history (most recent first, show 8) ────────────────────────────
+  var bt = $("batches"), rows = "";
+  for (var b = batches.length - 1; b >= Math.max(0, batches.length - 8); b--) {
+    rows += "<tr><td class='d'>Month " + (b + 1) + " batch</td>" +
+            "<td class='s paid'>PAID · PAYPAL</td>" +
+            "<td class='r g'>" + money(batches[b]) + "</td></tr>";
+  }
+  bt.innerHTML = rows;
+
+  // ── Recent activity (illustrative rows across the ticket range) ───────────
+  var acts = [
+    [499, "mat"], [199, "mat"], [1999, "mat"], [499, "mat"], [99, "mat"],
+    [999, "pay"], [499, "pay"], [199, "pay"], [499, "paid"], [1999, "paid"],
+    [999, "paid"], [199, "paid"]
+  ];
+  var NAMES = { 99: "$0.99 mini", 199: "$1.99 pack", 499: "$4.99 pack", 999: "$9.99 bundle", 1999: "$19.99 mega" };
+  var LBL = { mat: ["MATURING", "mat"], pay: ["PAYABLE", "paid"], paid: ["PAID", "paid"] };
+  var at = $("activity"), arows = "";
+  acts.forEach(function (a) {
+    arows += "<tr><td class='d'>" + NAMES[a[0]] + " → you " + money(comm(a[0])) + "</td>" +
+             "<td class='s " + LBL[a[1]][1] + "'>" + LBL[a[1]][0] + "</td>" +
+             "<td class='r'>" + money(comm(a[0])) + "</td></tr>";
+  });
+  at.innerHTML = arows;
+})();
+</script>
+</body>
+</html>

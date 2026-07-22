@@ -180,7 +180,7 @@
     row("COMMISSION", ["50% of net per sale", "$4.99 pack → $2.28 to you"]);
     row("WINDOW", ["90 days per referred buyer"]);
     row("MATURATION", ["30 days — the refund window"]);
-    row("PAYOUT", ["Monthly PayPal · $20 minimum", "Leafwind Studios Ltd (England & Wales)"]);
+    row("PAYOUT", ["Monthly PayPal · $20 minimum", "Leafwind Studios Ltd · UK co. 17252962"]);
     row("COST TO JOIN", ["$0.00 — at every stage, forever"]);
 
     y += 6;
@@ -200,7 +200,7 @@
 
     // Footer truths
     ctx.fillStyle = "#8fa0b3"; ctx.font = "600 22px " + F;
-    y = wrap(ctx, "No hype — earnings follow the work. Every close pays, and there is no cap.", M, y, W - 2 * M, 32);
+    y = wrap(ctx, "No hype — earnings follow the work. Every sale pays, and there is no cap.", M, y, W - 2 * M, 32);
     y += 6;
     ctx.fillStyle = "#5f7183"; ctx.font = "600 20px " + F;
     y = wrap(ctx, "Verify everything: desk.defimagic.io  ·  Terms: accentle.com/partners/terms  ·  18+", M, y, W - 2 * M, 30);
@@ -257,11 +257,11 @@
       "Product: LET'S PLAY party game packs — digital, instant, playable at accentle.com/arcade\n" +
       "Commission: 50% of net per sale — a $4.99 pack pays $2.28\n" +
       "Window: 90 days per referred buyer · Maturation: 30 days\n" +
-      "Payout: monthly PayPal, $20 minimum, from Leafwind Studios Ltd (England & Wales)\n" +
+      "Payout: monthly PayPal, $20 minimum, from Leafwind Studios Ltd — UK co. 17252962 (Companies House)\n" +
       "Cost to join: $0.00 — at every stage, forever\n" +
       "My link: https://accentle.com/arcade/?amb=" + currentCode + "\n" +
       "Verify everything: https://desk.defimagic.io · Terms: https://accentle.com/partners/terms\n" +
-      "No hype — earnings follow the work. Every close pays, and there is no cap.";
+      "No hype — earnings follow the work. Every sale pays, and there is no cap.";
     var done = function () { $("watext").textContent = "Copied!"; setTimeout(function () { $("watext").textContent = "Copy text version"; }, 1400); };
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, done);
     else done();
