@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>THE REAL DESK — a commission deal that actually closes</title>
-<meta name="description" content="For everyone grinding WhatsApp mandate deals: a real product, a tracked link, 50% of net per sale, monthly PayPal from a named UK company. Small. Real. Paid.">
+<title>THE REAL DESK — the commission deal that answers to you</title>
+<meta name="description" content="For people who can work a room: a real product, a tracked link, 50% of net on every sale — no cap, no chain, no fees. Monthly PayPal. Small. Real. Paid.">
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="THE REAL DESK — Small. Real. Paid.">
-<meta property="og:description" content="Years of LOIs, ICPOs and IMFPAs that paid nothing. Here is a deal sized to close: 50% of net per sale, monthly PayPal, $0 to join, every line checkable.">
+<meta property="og:description" content="A commission desk where the closing is in your hands: 50% of net per sale, tracked link, no cap, monthly PayPal, $0 to join — every line checkable.">
 <meta property="og:image" content="https://desk.defimagic.io/og/desk.png">
 <meta property="og:url" content="https://desk.defimagic.io/">
 <meta property="og:type" content="website">
@@ -19,7 +19,7 @@
     --green:#3ddc84; --amber:#ffb454; --red:#ff6b6b; --line:#1f2c3d; --line2:#2a3a50;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { -webkit-text-size-adjust:100%; }
+  html { -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
   body {
     background:var(--bg); color:var(--ink); min-height:100vh;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -37,15 +37,17 @@
   .brand nav a { color:var(--dim); margin-left:12px; }
   .brand nav a:hover { color:var(--ink); text-decoration:none; }
 
-  .hero { margin:44px 0 10px; }
+  .hero { margin:40px 0 8px; }
   .eyebrow { font-size:12px; font-weight:800; letter-spacing:.16em; color:var(--green); text-transform:uppercase; }
   h1 { font-size:clamp(28px,6vw,44px); font-weight:900; letter-spacing:-.025em; line-height:1.08; margin-top:10px; }
   .sub { color:var(--dim); font-size:clamp(15px,2.2vw,17.5px); margin-top:14px; max-width:56ch; }
   .sub b { color:var(--ink); }
-  .tag { margin-top:18px; font-weight:900; font-size:15px; letter-spacing:.02em; }
+  .tag { margin-top:16px; font-weight:900; font-size:15px; letter-spacing:.02em; }
   .tag span { color:var(--green); }
+  .returner { font-size:13px; font-weight:700; margin-top:10px; }
+  .returner a { color:var(--dim); }
 
-  .sec { margin-top:46px; }
+  .sec { margin-top:44px; }
   .sec > h2 { font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); margin-bottom:14px; }
   .card { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px; }
   .card + .card { margin-top:12px; }
@@ -54,13 +56,20 @@
   table.vs th { text-align:left; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); padding:0 10px 10px 0; }
   table.vs th:last-child { color:var(--green); }
   table.vs td { border-top:1px solid var(--line); padding:11px 10px 11px 0; vertical-align:top; }
-  table.vs td:first-child { color:var(--dim); width:52%; }
+  table.vs td:first-child { color:var(--dim); width:47%; }
   table.vs td:last-child { color:var(--ink); font-weight:600; }
 
   .math { font-size:14.5px; color:var(--dim); }
   .math b { color:var(--ink); }
-  .math .pt { margin-top:12px; }
   .math .green { color:var(--green); font-weight:800; }
+  .math .pt { margin-top:12px; }
+
+  .ladder { width:100%; border-collapse:collapse; font-size:14.5px; }
+  .ladder td { border-top:1px solid var(--line); padding:10px 10px 10px 0; }
+  .ladder tr:first-child td { border-top:none; }
+  .ladder .n { color:var(--dim); }
+  .ladder .v { text-align:right; font-weight:900; color:var(--green); }
+  .ladder .note { color:var(--dim); font-weight:600; font-size:12.5px; }
 
   .sheet { border:1px solid var(--line2); border-radius:14px; overflow:hidden; }
   .sheet .head { background:var(--panel2); padding:12px 16px; font-weight:900; letter-spacing:.14em; font-size:12px; display:flex; justify-content:space-between; }
@@ -127,6 +136,13 @@
   .tool .t span { color:var(--green); }
   .tool .d { font-size:12.5px; color:var(--dim); margin-top:3px; }
 
+  .cta-end { margin-top:46px; text-align:center; }
+  .cta-end a.big { display:block; background:var(--green); color:#06220f; font-weight:900; font-size:17px;
+                   padding:16px; border-radius:12px; }
+  .cta-end a.big:hover { text-decoration:none; }
+  .cta-end .under { color:var(--dim); font-size:13px; margin-top:10px; }
+  .cta-end .under span { color:var(--green); font-weight:800; }
+
   .foot { text-align:center; color:var(--dim); font-size:12px; margin-top:52px; line-height:1.7; }
   .foot a { color:var(--dim); text-decoration:underline; }
 </style>
@@ -145,57 +161,17 @@
   </div>
 
   <div class="hero">
-    <div class="eyebrow">For everyone still waiting on the mandate</div>
-    <h1>You've spent years on deals that don't exist. Here's one that does.</h1>
-    <p class="sub">A commission desk for people who broker: a <b>real digital product</b> you can open right now, a <b>tracked link</b> with your code on it, <b>50% of net</b> per sale, paid <b>monthly by PayPal</b> from a named company. No LOI. No POF. No fees, ever.</p>
+    <div class="eyebrow">For people who can work a room</div>
+    <h1>A deal that closes as many times as you make it close.</h1>
+    <p class="sub">Real product. Tracked link. <b>50% of net on every sale — no cap, no chain, no one to wait on.</b> Paid monthly by PayPal from a named UK company. Free to join, at every stage, forever.</p>
     <div class="tag">Small. Real. <span>Paid.</span></div>
-  </div>
-
-  <div class="sec">
-    <h2>Read this like a broker</h2>
-    <div class="card">
-      <table class="vs">
-        <tr><th>The mandate world</th><th>This desk</th></tr>
-        <tr><td>Deal size: $50,000,000 — claimed</td><td>Deal size: $4.99 — real</td></tr>
-        <tr><td>Your cut: 2% closed, 1% open — of nothing</td><td>Your cut: 50% of net — <b style="color:var(--green)">$2.28 per sale</b>, of money that exists</td></tr>
-        <tr><td>Procedure: LOI → ICPO → FCO → NCNDA → IMFPA → silence</td><td>Procedure: get code → share link → watch your ledger</td></tr>
-        <tr><td>Proof: a screenshot of an MT103 somebody forwarded</td><td>Proof: a live ledger you refresh yourself, any hour</td></tr>
-        <tr><td>Counterparty: "the buyer's mandate's associate"</td><td>Counterparty: Leafwind Studios Ltd, England &amp; Wales, named in the terms</td></tr>
-        <tr><td>Fees: TTM travel, activation, certificates, storage</td><td>Fees: $0.00. If anyone ever asks you for money to earn money — walk.</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="sec">
-    <h2>The chain math nobody in the group will say out loud</h2>
-    <div class="card math">
-      <p><b>Why the $50M deal never closes:</b> count the chain. Three brokers buyer-side, four seller-side, everyone standing on 2%. That's <b>14% of the deal in commissions</b> before the commodity moves a metre. No refinery, no bullion desk, no bank on earth signs 14% away to strangers on WhatsApp. The deal isn't delayed. It was never a deal.</p>
-      <p class="pt"><b>Now count this chain:</b> a customer pays <b>$4.99</b> → card processing takes 44¢ → <b>$4.55</b> lands → <span class="green">you get $2.28</span>, the desk keeps $2.27. One link between buyer and product. <b>Chains of one close.</b></p>
-      <p class="pt">Run your own numbers on both worlds: <a href="/math/">the math page</a>.</p>
-    </div>
-  </div>
-
-  <div class="sec">
-    <h2>The offer — in the format you know</h2>
-    <div class="sheet">
-      <div class="head"><span>SOFT OFFER — VERIFIABLE</span><span>NO EXPIRY · NO NDA</span></div>
-      <dl>
-        <div class="row"><dt>Product</dt><dd>LET'S PLAY party game packs — digital, delivered instantly, playable in any phone browser. <a href="https://accentle.com/arcade/" rel="noopener">Open the product now</a> and see it exists. Try that with BLCO.</dd></div>
-        <div class="row"><dt>Quantity</dt><dd>Unlimited. Digital goods do not sit in a tank farm in Rotterdam.</dd></div>
-        <div class="row"><dt>Commission</dt><dd><b>50% of net, per sale.</b> Net = what lands after card fees. A $4.99 pack pays you <b>$2.28</b> — printed here so you can check it, not negotiated in a "commission structure" call.</dd></div>
-        <div class="row"><dt>Window</dt><dd>Every buyer who arrives through your link is yours for <b>90 days</b> — you earn on whatever they buy in that window. First link wins, forever.</dd></div>
-        <div class="row"><dt>Maturation</dt><dd><b>30 days</b> — a sale becomes payable after it survives the refund window. You are never paid money that later reverses, and never asked to give anything back.</dd></div>
-        <div class="row"><dt>Payout</dt><dd>Monthly PayPal batch, <b>$20 minimum</b> (smaller balances roll forward), sent by <b>Leafwind Studios Ltd</b> — the operator named in <a href="https://accentle.com/partners/terms/" rel="noopener">the terms</a>. Worldwide, wherever PayPal can receive money.</dd></div>
-        <div class="row"><dt>KYC</dt><dd>PayPal's, not ours. No W-9, no SSN, no ID sent to us. You must be 18+.</dd></div>
-        <div class="row"><dt>Procedure</dt><dd>1. Get your code below. 2. Share your link. 3. Watch your ledger. That is the complete procedure. There is no step where you pay somebody.</dd></div>
-      </dl>
-    </div>
+    <div class="returner"><a href="#ledger">Already on the desk? Open your ledger ↓</a></div>
   </div>
 
   <div class="sec" id="join">
-    <h2>Take the mandate — free, 60 seconds</h2>
+    <h2>Take your mandate — free, 60 seconds</h2>
     <div class="card">
-      <p style="color:var(--dim); font-size:14px;">Your name, your PayPal email, done. You get a code and a tracked link on the spot — same engine as the <a href="https://letsplay.party/ambassador/" rel="noopener">official program page</a>.</p>
+      <p style="color:var(--dim); font-size:14px;">Name, PayPal email — your code and tracked link mint on the spot, on the same live engine as the <a href="https://letsplay.party/ambassador/" rel="noopener">official program page</a>. No interviews, no paperwork, no fees ever.</p>
       <form id="signup" autocomplete="on">
         <label class="label" for="amb-name">Your name</label>
         <input id="amb-name" name="name" type="text" placeholder="What your contacts call you" maxlength="100" autocomplete="name">
@@ -208,22 +184,76 @@
         <div class="label">Your code</div>
         <div class="codebox">
           <div class="code" id="out-code">—</div>
-          <div style="font-size:12px; color:var(--dim); margin-top:8px;">Anyone who plays through your link is credited to you — first link wins, forever.</div>
+          <div style="font-size:12px; color:var(--dim); margin-top:8px;">Everyone who plays through your link is credited to you — first link wins, forever.</div>
         </div>
         <div class="label">Your tracked link</div>
         <div class="linkrow">
           <input id="out-link" type="text" readonly value="">
           <button class="copybtn" id="copy-link" type="button">Copy</button>
         </div>
-        <p style="font-size:12px; color:var(--dim); margin-top:10px;">Save the code — it's how you check your ledger below. Next: print your <a href="/sheet/">Real Deal Sheet</a> and read <a href="/kit/">the Drop Kit</a> before you share anything.</p>
+        <p style="font-size:12px; color:var(--dim); margin-top:10px;">Save your code — it opens your ledger any time. Next moves: print your <a href="/sheet/">Deal Sheet</a>, load the <a href="/kit/">Drop Kit</a>, and open your first room.</p>
       </div>
     </div>
   </div>
 
-  <div class="sec" id="ledger">
-    <h2>Check your ledger — live, no human in the way</h2>
+  <div class="sec">
+    <h2>Everything that was out of your hands is now in them</h2>
     <div class="card">
-      <p style="color:var(--dim); font-size:14px;">In the mandate world you wait for "the closer" to answer. Here the ledger is computed from real charges every time you ask.</p>
+      <table class="vs">
+        <tr><th>Out of your hands, before</th><th>In your hands, now</th></tr>
+        <tr><td>Whether the deal ever closes — a chain of strangers decided</td><td>Every close: a $4.99 checkout your buyer finishes in about a minute</td></tr>
+        <tr><td>Your cut — negotiated, then renegotiated on a call</td><td>50% of net, printed: <b style="color:var(--green)">$2.28 per pack</b>, every pack, no discussion</td></tr>
+        <tr><td>How many deals you could run — one mandate at a time</td><td>No cap, no quota, no territory: bring 10 people or 10,000 — the ledger just counts</td></tr>
+        <tr><td>The proof — screenshots somebody forwarded</td><td>A live ledger you refresh yourself, any hour</td></tr>
+        <tr><td>The payout — waiting on a paymaster to answer</td><td>Monthly PayPal batch from Leafwind Studios Ltd, automatic at $20+</td></tr>
+        <tr><td>The cost of staying in — fees, travel, certificates</td><td>$0.00 — money on this desk flows one direction: toward you</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>One link. That's the whole chain.</h2>
+    <div class="card math">
+      <p>A buyer pays <b>$4.99</b> → card processing takes 44¢ → <b>$4.55</b> lands → <span class="green">$2.28 to you</span>, $2.27 keeps the desk running. One link between buyer and product: <b>yours</b>. No buyer-side, no seller-side, no percentages to defend on a conference call.</p>
+      <p class="pt">A chain of one closes — and a chain of one means the whole deal answers to <b>you</b>. <a href="/math/">Run the numbers on both worlds →</a></p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>The throttle is yours</h2>
+    <div class="card">
+      <table class="ladder">
+        <tr><td class="n">1 sale</td><td class="v">$2.28</td></tr>
+        <tr><td class="n">9 sales <span class="note">— your first PayPal batch clears</span></td><td class="v">$20.52</td></tr>
+        <tr><td class="n">50 sales</td><td class="v">$114.00</td></tr>
+        <tr><td class="n">500 sales</td><td class="v">$1,140.00</td></tr>
+        <tr><td class="n">1,000 sales</td><td class="v">$2,280.00</td></tr>
+      </table>
+      <p style="font-size:13.5px; color:var(--dim); margin-top:12px;">That column is arithmetic — the engine has no cap, so <b style="color:var(--ink)">the promise is the one you make yourself.</b> Reach, follow-up, consistency: the skills you already run every day, finally wired to a ledger that pays on every close. And every buyer you bring keeps paying you on everything they buy for 90 days.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>The offer — in the format you know</h2>
+    <div class="sheet">
+      <div class="head"><span>OFFER — VERIFIABLE</span><span>NO EXPIRY · NO NDA</span></div>
+      <dl>
+        <div class="row"><dt>Product</dt><dd>LET'S PLAY party game packs — digital, delivered instantly, playable in any phone browser. <a href="https://accentle.com/arcade/" rel="noopener">Open it right now</a> — it loads, it plays, it sells.</dd></div>
+        <div class="row"><dt>Quantity</dt><dd>Unlimited. Digital stock never runs dry — no allocations, no waiting on a lift.</dd></div>
+        <div class="row"><dt>Commission</dt><dd><b>50% of net, per sale.</b> Net = what lands after card fees. A $4.99 pack pays you <b>$2.28</b> — printed here so you can check it, and the same for everyone, every time.</dd></div>
+        <div class="row"><dt>Window</dt><dd>Every buyer who arrives through your link is yours for <b>90 days</b> — you earn on everything they buy in that window. First link wins, forever.</dd></div>
+        <div class="row"><dt>Maturation</dt><dd><b>30 days</b> — each sale clears the refund window, then it's yours for good. Matured money can never be pulled back.</dd></div>
+        <div class="row"><dt>Payout</dt><dd>Monthly PayPal batch, automatic at <b>$20+</b> (smaller balances roll forward), sent by <b>Leafwind Studios Ltd</b> — the operator named in <a href="https://accentle.com/partners/terms/" rel="noopener">the terms</a>. Worldwide, wherever PayPal receives money.</dd></div>
+        <div class="row"><dt>KYC</dt><dd>PayPal's, not ours. No W-9, no SSN, no documents sent to us. 18+.</dd></div>
+        <div class="row"><dt>Procedure</dt><dd>1. Get your code. 2. Share your link. 3. Watch your ledger. Three steps, all yours — no step waits on anyone else.</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="sec" id="ledger">
+    <h2>Your ledger — live, any hour</h2>
+    <div class="card">
+      <p style="color:var(--dim); font-size:14px;">Computed from real charges every time you ask. No closer to chase, no confirmation to wait on — the numbers answer to you.</p>
       <form id="lookup">
         <label class="label" for="amb-code">Your code</label>
         <input id="amb-code" name="code" type="text" placeholder="e.g. K7QMP2X" maxlength="16" style="text-transform:uppercase; letter-spacing:.1em; font-weight:800;">
@@ -245,13 +275,13 @@
   </div>
 
   <div class="sec">
-    <h2>Don't trust this page — that's the point</h2>
+    <h2>Check everything — this desk is built to be verified</h2>
     <div class="card verify">
       <ul class="plain">
-        <li><span class="tick">✓</span><span><b>Open the product.</b> <a href="https://accentle.com/arcade/" rel="noopener">accentle.com/arcade</a> — it loads, it plays, people buy packs in it. A deal you can't see isn't a deal.</span></li>
+        <li><span class="tick">✓</span><span><b>Open the product.</b> <a href="https://accentle.com/arcade/" rel="noopener">accentle.com/arcade</a> — it loads and plays in your browser right now. Your buyers see exactly what you're offering.</span></li>
         <li><span class="tick">✓</span><span><b>Read the official program page.</b> <a href="https://letsplay.party/ambassador/" rel="noopener">letsplay.party/ambassador</a> — same terms, same engine, same numbers.</span></li>
         <li><span class="tick">✓</span><span><b>Read the terms.</b> <a href="https://accentle.com/partners/terms/" rel="noopener">accentle.com/partners/terms</a> — operator named (Leafwind Studios Ltd), governing law named (England &amp; Wales), payout rules in plain English.</span></li>
-        <li><span class="tick">✓</span><span><b>Run this desk through our own scam checker.</b> <a href="/check/">Deal Check</a> — built from the anatomy of mandate-world deals. Paste this page's offer into it. Then paste your other deals.</span></li>
+        <li><span class="tick">✓</span><span><b>Run this desk through our own checker.</b> <a href="/check/">Deal Check</a> — paste this page's offer into it, then paste anything else you've been sent. Handy tool to keep, either way.</span></li>
       </ul>
     </div>
   </div>
@@ -260,21 +290,22 @@
     <h2>Straight answers</h2>
     <div class="card">
       <ul class="plain">
-        <li><span class="q">How much will I earn?</span><span class="a">Unknown. Possibly nothing — <a href="https://accentle.com/partners/terms/" rel="noopener">the terms</a> say plainly that most affiliates earn nothing, and that is true here too. The difference is the other side of it: every sale that does happen pays, on schedule, and you can watch it mature in a ledger nobody edits for a screenshot. Nobody here will show you a Ferrari.</span></li>
-        <li><span class="q">Is this MLM?</span><span class="a">No. There is nothing to buy, no starter pack, no downline. Recruiting other promoters pays you $0. You earn only when a real customer buys a real product through your link.</span></li>
-        <li><span class="q">Why is the deal so small?</span><span class="a">Because small is what real looks like. A $4.99 pack clears checkout in about a minute. The $50M allocation has a nine-step procedure because the procedure is the product — it exists to keep you in the chain, paying fees. We'd rather pay you $2.28 that exists than promise you a million that doesn't.</span></li>
-        <li><span class="q">Which countries?</span><span class="a">Anywhere PayPal can receive money. We don't keep a country list — open your PayPal and check it can receive funds where you are. If it can't, this desk can't pay you, and we'd rather tell you that now than after you've shared a hundred links.</span></li>
-        <li><span class="q">Who actually buys these packs?</span><span class="a">Not your deal groups — your other chats. Family groups, church and mosque groups, school parents, office chats, diaspora cousins abroad. It's a party game: people buy it to play it together tonight. The <a href="/kit/">Drop Kit</a> maps which message belongs in which chat.</span></li>
-        <li><span class="q">What's in it for the desk?</span><span class="a">The other $2.27. That's the whole model — we keep half of net, you get half. When you earn, we earn. When you earn nothing, we earn nothing. Incentives pointing the same direction is what a real deal looks like.</span></li>
+        <li><span class="q">How much can I earn?</span><span class="a">As much as you build. There's no cap, no quota, and no one above you taking a slice of your side. Everyone who arrives through your link is tracked to your code, and everything they buy in their first 90 days pays you 50% of net — every sale, automatically. The engine doesn't decide how big this gets; <b>you</b> do: how many rooms you're in, how many people you bring, how well you follow up. That throttle is in your hand. Exact program terms <a href="https://accentle.com/partners/terms/" rel="noopener">here</a>.</span></li>
+        <li><span class="q">When do I get paid?</span><span class="a">Monthly, by PayPal, from Leafwind Studios Ltd. Each sale matures for 30 days (the refund window) and then it's locked in — matured money can't be reversed or taken back. Batches go out automatically at $20 or more; smaller balances roll forward on their own.</span></li>
+        <li><span class="q">Is this MLM?</span><span class="a">No. There's nothing to buy — not now, not later. No starter pack, no downline, no recruitment bonuses. 100% of your earnings come from real customers buying a real product through your link. One layer: you.</span></li>
+        <li><span class="q">Why is the ticket small?</span><span class="a">Small is the feature. A $4.99 impulse buy closes in a minute — your effort converts the same day, not next quarter. Big tickets hand control to committees and chains; small tickets hand it to you, and volume is yours to build without limit.</span></li>
+        <li><span class="q">Which countries?</span><span class="a">Anywhere PayPal can receive money — most of the world. Two-minute setup check: open your PayPal, confirm it can receive funds where you are, and you're ready. That's the only equipment this desk needs.</span></li>
+        <li><span class="q">Who buys these packs?</span><span class="a">Your buyer map is bigger than you think: family groups, church and mosque chats, school parents, office groups, the cousins abroad. It's a party game — people buy it to play together tonight. Your deal groups hold colleagues; your other chats hold customers. The <a href="/kit/">Drop Kit</a> has ready-made messages for both.</span></li>
+        <li><span class="q">What's in it for the desk?</span><span class="a">The other $2.27. That's the whole model — we keep half of net, you get half. When you earn, we earn; when you don't, we don't. Incentives pointing the same direction is what a real deal looks like.</span></li>
       </ul>
     </div>
   </div>
 
   <div class="sec">
-    <h2>Desk rules — read before sharing</h2>
+    <h2>Protect your desk</h2>
     <div class="card">
       <div class="rules">
-        <b>This desk terminates for the mandate world's habits:</b> no bulk spam or unsolicited blasts, no income promises or earnings screenshots used as bait, no buying through your own link, no impersonating the product or the operator. Full list in <a href="https://accentle.com/partners/terms/" rel="noopener">the terms</a>. Share where you're known, describe the terms as they're written, and let people check everything themselves — the way you just did.
+        <b>Three rules keep your link valuable:</b> share where you're known (bulk spam voids balances — <a href="https://accentle.com/partners/terms/" rel="noopener">the terms</a> mean it), sell with the printed terms (the real math is impressive enough — no invented income screenshots), and never buy through your own link. That's it. The desk handles everything else.
       </div>
     </div>
   </div>
@@ -282,17 +313,22 @@
   <div class="sec">
     <h2>The desk's tools</h2>
     <div class="toolrow">
-      <a class="tool" href="/check/"><span class="t">DEAL <span>CHECK</span></span><span class="d">Paste any WhatsApp deal. Get the red flags, the chain math, the verdict.</span></a>
-      <a class="tool" href="/math/"><span class="t">THE <span>MATH</span></span><span class="d">2% of $50M at probability zero, vs $2.28 at probability one.</span></a>
+      <a class="tool" href="/check/"><span class="t">DEAL <span>CHECK</span></span><span class="d">Paste any offer you're sent. Red flags, chain math, verdict — free, on your phone.</span></a>
+      <a class="tool" href="/math/"><span class="t">THE <span>MATH</span></span><span class="d">Run both worlds side by side — and see the throttle.</span></a>
       <a class="tool" href="/sheet/"><span class="t">DEAL <span>SHEET</span></span><span class="d">Your one-pager, in the format the groups know — every line checkable.</span></a>
-      <a class="tool" href="/kit/"><span class="t">DROP <span>KIT</span></span><span class="d">Messages that work, and the map of which chat each one belongs in.</span></a>
+      <a class="tool" href="/kit/"><span class="t">DROP <span>KIT</span></span><span class="d">Ready-made messages, and the map of which chat each one belongs in.</span></a>
     </div>
+  </div>
+
+  <div class="cta-end">
+    <a class="big" href="#join">Take your mandate — free →</a>
+    <div class="under">60 seconds · $0 to join · no paperwork &nbsp;—&nbsp; Small. Real. <span>Paid.</span> And how big it gets is <span>up to you</span>.</div>
   </div>
 
   <div class="foot">
     Program operator: Leafwind Studios Ltd · Terms: <a href="https://accentle.com/partners/terms/" rel="noopener">accentle.com/partners/terms</a><br>
     Official program page: <a href="https://letsplay.party/ambassador/" rel="noopener">letsplay.party/ambassador</a> · Product: <a href="https://accentle.com/arcade/" rel="noopener">accentle.com/arcade</a><br>
-    No income is promised or implied. 18+. The Hive — powered by AI.
+    Earnings depend on your effort — no specific income is promised. 18+. The Hive — powered by AI.
   </div>
 </div>
 
@@ -326,7 +362,7 @@
         $("out-code").textContent = res.code;
         $("out-link").value = res.link || ("https://accentle.com/arcade/?amb=" + res.code);
         $("signup-result").classList.add("on");
-        msg.className = "msg ok"; msg.textContent = "Code issued. This is the part where every other deal went quiet — this one just started.";
+        msg.className = "msg ok"; msg.textContent = "You're live — your link tracks from this second.";
         $("signup-result").scrollIntoView({ behavior: "smooth", block: "nearest" });
       } else {
         msg.className = "msg err"; msg.textContent = (res && res.error) ? res.error : "Something went wrong — try again.";
@@ -362,7 +398,7 @@
         $("s-pending").textContent = money(s.commission_pending_cents);
         $("s-meta").textContent = "Total collected through you: " + money(s.gross_cents) +
           " · " + s.purchases + " purchase" + (s.purchases === 1 ? "" : "s") +
-          " · Payouts: monthly PayPal batch, $20 minimum";
+          " · Payouts: monthly PayPal batch, automatic at $20+";
         $("stats").classList.add("on");
         msg.className = "msg ok"; msg.textContent = "";
       } else {

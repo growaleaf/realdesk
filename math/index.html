@@ -82,14 +82,14 @@
     </div>
     <div class="row2">
       <div><label for="brokers">Brokers in the chain</label><input id="brokers" type="number" value="7" min="1" max="30" inputmode="numeric"></div>
-      <div><label for="years">Years you've chased it</label><input id="years" type="number" value="3" min="0" max="40" inputmode="numeric"></div>
+      <div><label for="years">Years it's been open</label><input id="years" type="number" value="3" min="0" max="40" inputmode="numeric"></div>
     </div>
     <div class="out">
       <div class="line"><span class="k">Your commission if it closes</span><span class="v amber" id="a-if">$1,000,000</span></div>
       <div class="line"><span class="k">Chain load (all brokers on your %)</span><span class="v" id="a-chain">14% of the deal</span></div>
       <div class="line"><span class="k">Deals with this anatomy that close</span><span class="v red">effectively none</span></div>
       <div class="line"><span class="k">Expected value</span><span class="v red" id="a-ev">$0</span></div>
-      <div class="line"><span class="k">Your cost so far</span><span class="v" id="a-cost">3 years of WhatsApp</span></div>
+      <div class="line"><span class="k">Time invested so far</span><span class="v" id="a-cost">3 years</span></div>
       <div class="big red" id="a-big">2% of zero is zero.</div>
       <div class="note">The commission is real arithmetic on an unreal number. Multiply anything by a closing probability of zero and the answer never changes — no matter how many zeros the deal has.</div>
     </div>
@@ -106,19 +106,19 @@
       <div class="line"><span class="k">Your commission</span><span class="v green" id="b-sum">$20.52</span></div>
       <div class="line"><span class="k">Probability it pays if the sales happen</span><span class="v green">1 — it's a ledger, not a promise</span></div>
       <div class="big green" id="b-big">$20.52 — crosses the $20 minimum. That's a PayPal batch.</div>
-      <div class="note" id="b-note">Each sale matures 30 days (refund window), then goes payable and out in the monthly batch. No income is promised — zero sales pays zero. The difference from Deal A is not the size. It's that the multiplication is by 1, not 0.</div>
+      <div class="note" id="b-note">Each sale matures 30 days (refund window), then goes payable and out in the monthly batch. The slider stops at 200 — the engine doesn't. Reach, follow-up, consistency: the variables are yours, and every close pays. The difference from Deal A is not the size. It's that the multiplication is by 1, not 0.</div>
     </div>
   </div>
 
   <div class="punch">
-    <b>The line that matters:</b> a million dollars at probability zero is worth less than $2.28 at probability one. Everyone in your groups knows the first half of that sentence. The ones who act on the second half stop forwarding ghosts and start running networks that pay. The real prize isn't the $2.28 — it's finding out, once and for real, that commission can actually arrive. After that, everything you build is built on ground.
+    <b>The line that matters:</b> a million dollars at probability zero is worth less than $2.28 at probability one. Everyone in your groups knows the first half of that sentence. The ones who act on the second half start running networks that pay — sized however they choose to build them. The real prize isn't the $2.28 — it's finding out, once and for real, that commission can actually arrive. After that, everything you build is built on ground.
   </div>
 
   <a class="cta" href="/">See the deal that multiplies by one →</a>
 
   <div class="foot">
     Part of <a href="/">THE REAL DESK</a> · <a href="/check/">Deal Check</a> · <a href="/sheet/">Deal Sheet</a> · <a href="/kit/">Drop Kit</a><br>
-    Operator: Leafwind Studios Ltd · <a href="https://accentle.com/partners/terms/" rel="noopener">Terms</a> · No income promised. 18+.<br>
+    Operator: Leafwind Studios Ltd · <a href="https://accentle.com/partners/terms/" rel="noopener">Terms</a> · Earnings depend on your effort — no specific income is promised. 18+.<br>
     The Hive — powered by AI.
   </div>
 </div>
@@ -143,7 +143,7 @@
     $("a-if").textContent = fmt(ifCloses);
     $("a-chain").textContent = (Math.round(chain * 10) / 10) + "% of the deal";
     $("a-ev").textContent = "$0";
-    $("a-cost").textContent = years === 0 ? "your next years, if you stay" : years + " year" + (years === 1 ? "" : "s") + " of WhatsApp";
+    $("a-cost").textContent = years === 0 ? "—" : years + " year" + (years === 1 ? "" : "s");
     $("a-big").textContent = pct + "% of zero is zero.";
   }
   ["size", "pct", "brokers", "years"].forEach(function (id) { $(id).addEventListener("input", dealA); });
@@ -156,7 +156,7 @@
     $("b-sum").textContent = "$" + dollars.toFixed(2);
     var big = $("b-big");
     if (n === 0) {
-      big.textContent = "$0.00 — zero sales pays zero. This desk doesn't pretend otherwise.";
+      big.textContent = "$0.00 — throttle's at zero. Slide it up: every sale is $2.28, and the engine has no cap.";
       big.className = "big";
     } else if (dollars < 20) {
       var need = Math.ceil((2000 - cents) / PER_SALE_CENTS);
