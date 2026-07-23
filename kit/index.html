@@ -81,6 +81,12 @@
   .rules b { color:var(--red); }
   .foot { text-align:center; color:var(--dim); font-size:12px; margin-top:52px; line-height:1.7; }
   .foot a { color:var(--dim); text-decoration:underline; }
+  .langrow { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .lang { font-size:12.5px; font-weight:800; color:var(--dim); background:var(--panel2); border:1px solid var(--line2);
+          border-radius:999px; padding:7px 14px; cursor:pointer; }
+  .lang.on { color:#06220f; background:var(--green); border-color:var(--green); }
+  .langnote { font-size:11.5px; color:var(--dim); margin-top:8px; }
+  pre[dir="rtl"] { text-align:right; font-size:15px; line-height:1.9; }
 </style>
 </head>
 <body>
@@ -105,6 +111,18 @@
     <label class="label" for="code">Promoter code (optional — get one free <a href="/#join">here</a>)</label>
     <input id="code" type="text" placeholder="e.g. K7QMP2X" maxlength="16">
     <div class="msg" id="code-msg"></div>
+  </div>
+
+  <div class="secH">Message language</div>
+  <div class="card">
+    <div class="langrow" id="langrow">
+      <span class="lang on" data-lang="en">English</span>
+      <span class="lang" data-lang="fr">Français</span>
+      <span class="lang" data-lang="ha">Hausa</span>
+      <span class="lang" data-lang="sw">Kiswahili</span>
+      <span class="lang" data-lang="ur">اردو</span>
+    </div>
+    <div class="langnote">Translations are for convenience — the program's <a href="https://accentle.com/partners/terms/" rel="noopener">terms</a> are in English.</div>
   </div>
 
   <div class="secH">The map</div>
@@ -223,6 +241,31 @@ The program: https://refer.defimagic.io</pre>
       renderLinks();
     }, 500);
   });
+
+  var I18N = {"fr": {"m1": "J'ai trouvé un deal à commission qui fonctionne enfin comme il faut : 50 % du net sur chaque vente — $2.28 sur un pack à $4.99 — suivi via votre propre lien, PayPal chaque mois depuis une société enregistrée au Royaume-Uni (Companies House no. 17252962), $0 pour rejoindre. Pas de LOI, pas de POF, pas de chaîne, pas de gatekeeper : vous suivez votre propre ledger en direct, et aucun plafond sur le nombre de personnes que vous amenez.\n\nTout est entre vos mains — votre réseau, votre rythme, vos relances. Chaque vente paie.\n\nJe l'ai passé au détecteur d'arnaques avant d'y toucher — ça passe nickel. Vérifiez vous-même : https://refer.defimagic.io/check/\nLe programme : https://refer.defimagic.io", "m2": "Trente secondes de protection pour tout le groupe — collez n'importe quelle offre dedans avant d'y consacrer du temps. Gratuit, ça marche sur téléphone, rien à télécharger. Ça montre les red flags et le calcul de la chaîne : https://refer.defimagic.io/check/", "m3": "Tu me connais — je suis dans ces groupes depuis aussi longtemps que toi. Écoute. Je ne t'apporte pas un mandat. C'est petit, et je commence par ça. Une boîte de jeux paie la moitié du net par vente via un lien suivi — deux dollars et quelques sur chaque pack. PayPal chaque mois. Zéro frais pour rejoindre, à aucune étape. Et tu vérifies ton propre ledger — pas de closer, pas de paymaster, tu n'attends la confirmation de personne. Je l'ai passé au détecteur d'arnaques avant d'y toucher. Ça passe. Je mets les deux liens en dessous. Vérifie tout toi-même — c'est tout l'intérêt.", "m4": "Soirée jeux, ce soir ? Tout le monde rejoint depuis son téléphone avec un seul code de room — pas d'appli, ça marche dans le navigateur. Des petits jeux rapides, le perdant s'explique 😅 On commence ici : LINK", "m5": "Au prochain appel en famille, essayez ça — chacun rejoint depuis son téléphone, deux minutes pour démarrer, et ça marche depuis n'importe quel pays : LINK Tu gères le code de la room, je gère le bruit 😄", "m6": "Pour la prochaine soirée jeunes / journée famille — des jeux d'ambiance où chacun participe depuis son propre téléphone, un seul code de room, rien à installer : LINK Chaud pour tout préparer le jour J.", "m7": "J'ai passé des années à courir après 2 % de milliards imaginaires. Aujourd'hui, je gère un petit réseau de parrainage qui paie 50 % de quelque chose de réel. Petit. Réel. Payé. C'est toute la stratégie maintenant → https://refer.defimagic.io"}, "ha": {"m1": "Na samu shirin kwamisho wanda a ƙarshe yake aiki yadda ya kamata: kashi 50% na ribar kowace sayarwa — $2.28 akan fakiti na $4.99 — ana bibiya ta link ɗinka, ana biya ta PayPal kowane wata daga kamfani mai rajista a Burtaniya (Companies House lamba 17252962), $0 don shiga. Babu LOI, babu POF, babu sarka, babu mai tsaron ƙofa: kana duba ledger ɗinka kai tsaye, kuma babu iyaka ga yawan mutanen da za ka kawo.\n\nKomai yana hannunka — hanyar sadarwarka, saurinka, da bibiyarka. Kowace sayarwa tana biya.\n\nNa gwada shi da mai binciken zamba kafin in taɓa shi — ya wuce. Gwada da kanka: https://refer.defimagic.io/check/\nShirin: https://refer.defimagic.io", "m2": "Ɗaƙiƙa talatin na kariya ga dukan ƙungiya — liƙa duk wani tayi a nan kafin ka ba shi lokacinka. Kyauta ne, yana aiki a wayarka, ba a ɗora komai ba. Yana nuna alamun haɗari da lissafin sarka: https://refer.defimagic.io/check/", "m3": "Ka san ni — ina cikin waɗannan ƙungiyoyi tun tuni kamar kai. Saurara. Ba mandate nake kawo maka ba. Ƙarami ne, kuma zan faɗa maka haka tun farko. Wani kamfanin wasanni yana biyan rabin riba akan kowace sayarwa ta hanyar link ɗin da ake bibiya — dala biyu da ɗan ƙarin canji akan kowane fakiti. Biya ta PayPal kowane wata. Babu kuɗin shiga, a kowane mataki. Kuma kana duba ledger ɗinka da kanka — babu closer, babu paymaster, ba ka jiran tabbacin kowa. Na gwada shi da mai binciken zamba kafin in taɓa. Ya wuce. Zan ajiye link guda biyu a ƙasa. Bincika komai da kanka — shi ne ainihin manufar.", "m4": "Daren wasa yau? Kowa zai shiga daga wayarsa kawai da lambar ɗaki ɗaya — babu buƙatar app, yana aiki a browser. Wasanni masu sauri, wanda ya sha kaye zai bayyana kansa 😅 Fara a nan: LINK", "m5": "Kiran iyali na gaba, gwada wannan — kowa zai shiga daga wayarsa, mintuna biyu kawai za a fara, kuma yana aiki daga kowace ƙasa: LINK Kai ka riƙe lambar ɗaki, ni zan riƙe hayaniya 😄", "m6": "Don daren matasa na gaba / ranar iyali — wasannin da kowa zai iya shiga daga wayarsa, lambar ɗaki ɗaya, babu buƙatar sauke komai: LINK Zan iya shirya komai a ranar.", "m7": "Na shafe shekaru ina bin kashi 2% na biliyoyin da ba su wanzu. Yanzu ina gudanar da ƙaramin layin referral da yake biyan kashi 50% na abu na gaske. Ƙarami. Na gaske. An biya. Shi ne dukan dabarata yanzu → https://refer.defimagic.io"}, "sw": {"m1": "Nimepata deal ya commission inayofanya kazi jinsi inavyotakiwa: 50% ya mapato halisi kwa kila mauzo — $2.28 kwa kifurushi cha $4.99 — inafuatiliwa kupitia link yako mwenyewe, malipo ya PayPal kila mwezi kutoka kwa kampuni iliyosajiliwa Uingereza (Companies House no. 17252962), $0 kujiunga. Hakuna LOI, hakuna POF, hakuna chain, hakuna gatekeeper: unatazama leja yako live, na hakuna kikomo cha watu unaoweza kuwaleta.\n\nKila kitu kiko mikononi mwako — mtandao wako, kasi yako, ufuatiliaji wako. Kila mauzo yanalipa.\n\nNiliipitisha kwenye scam checker kabla sijaigusa — iko safi. Ijaribu mwenyewe: https://refer.defimagic.io/check/\nMpango wenyewe: https://refer.defimagic.io", "m2": "Sekunde thelathini za ulinzi kwa group zima — paste offer yoyote hapa kabla ya kuitumia muda wako. Ni bure, inafanya kazi kwenye simu yako, hakuna kinachopandishwa. Inaonyesha red flags na hesabu za chain: https://refer.defimagic.io/check/", "m3": "Unanijua — nimekuwa kwenye ma-group hii muda mrefu kama wewe. Sikiliza. Sikuletei mandate. Ni ndogo, na nitasema hivyo kwanza. Kampuni ya game inalipa nusu ya mapato halisi kwa kila mauzo kupitia link inayofuatiliwa — dola mbili na kitu kwa kila kifurushi. PayPal kila mwezi. Ada ni sifuri kujiunga, katika hatua yoyote. Na unaangalia leja yako mwenyewe — hakuna closer, hakuna paymaster, husubiri uthibitisho wa mtu yeyote. Niliipitisha kwenye scam checker kabla sijaigusa. Iko safi. Nitaweka link zote mbili hapa chini. Kagua kila kitu mwenyewe — ndiyo maana yake hasa.", "m4": "Game night leo? Kila mtu anajiunga kutoka kwenye simu yake kwa room code moja — hakuna app, inafanya kazi kwenye browser. Party games za haraka haraka, aliyeshindwa anajieleza 😅 Anza hapa: LINK", "m5": "Kwenye family call ijayo, jaribu hii — kila mtu anajiunga kutoka kwenye simu yake, inachukua dakika mbili tu kuanza, na inafanya kazi kutoka nchi yoyote: LINK Wewe shika room code, mimi nitashughulikia kelele 😄", "m6": "Kwa youth night ijayo / family day — party games ambazo kila mtu anaweza kujiunga kutoka kwenye simu yake, room code moja tu, hakuna haja ya ku-install kitu: LINK Nipo tayari kuiseti siku hiyo.", "m7": "Nilitumia miaka nikifukuzia 2% ya mabilioni ya kufikirika. Siku hizi ninaendesha referral line ndogo inayolipa 50% ya kitu cha ukweli. Ndogo. Ya ukweli. Inalipa. Ndio mkakati wote kwa sasa → https://refer.defimagic.io"}, "ur": {"m1": "ایک کمیشن ڈیل ملی ہے جو آخرکار بالکل ویسے کام کرتی ہے جیسے ڈیلز کو کرنا چاہیے: ہر سیل کے نیٹ کا 50% — $4.99 کے پیک پر $2.28 — آپ کے اپنے لنک سے ٹریک، برطانیہ میں رجسٹرڈ کمپنی (Companies House no. 17252962) کی طرف سے ماہانہ PayPal پر ادائیگی، اور شمولیت $0 میں۔ نہ LOI، نہ POF، نہ کوئی چین اور نہ کوئی گیٹ کیپر: آپ اپنا لیجر خود لائیو دیکھتے ہیں، اور جتنے چاہیں لوگ لائیں، کوئی حد نہیں\n\nسب کچھ آپ کے اپنے ہاتھ میں ہے — آپ کا نیٹ ورک، آپ کی رفتار، آپ کا فالو اپ۔ ہر سیل پر پیسے ملتے ہیں۔\n\nمیں نے کام شروع کرنے سے پہلے اسے سکیم چیکر سے چیک کیا تھا — یہ بالکل پاس ہے۔ آپ خود چیک کر لیں: https://refer.defimagic.io/check/\nپروگرام: https://refer.defimagic.io", "m2": "پورے گروپ کی حفاظت کے لیے صرف 30 سیکنڈ — اپنا وقت لگانے سے پہلے کوئی بھی آفر اس میں پیسٹ کر کے دیکھ لیں۔ بالکل مفت، آپ کے فون پر ہی چلتا ہے اور کچھ اپ لوڈ بھی نہیں ہوتا۔ ریڈ فلیگز اور چین کا پورا حساب دکھاتا ہے: https://refer.defimagic.io/check/", "m3": "آپ مجھے جانتے ہیں — میں بھی اتنے ہی عرصے سے ان گروپس میں ہوں جتنے آپ ہیں۔ سنیں۔ میں آپ کے لیے کوئی مینڈیٹ نہیں لایا۔ کام چھوٹا ہے، یہ میں پہلے ہی بتا دوں۔ ایک گیمز کمپنی ٹریکڈ لنک کے ذریعے ہر سیل کے نیٹ کا آدھا حصہ دیتی ہے — یعنی ہر پیک پر دو ڈالر اور کچھ سینٹ۔ ماہانہ PayPal سے ادائیگی۔ کسی بھی مرحلے پر صفر فیس۔ اور آپ اپنا لیجر خود دیکھتے ہیں — نہ کوئی کلوزر، نہ پے ماسٹر، نہ کسی کی تصدیق کا انتظار۔ میں نے ہاتھ ڈالنے سے پہلے اسے سکیم چیکر سے گزارا تھا۔ یہ پاس ہے۔ میں دونوں لنکس نیچے بھیج رہا ہوں۔ سب کچھ خود چیک کریں — اصل مقصد ہی یہی ہے۔", "m4": "آج رات گیم نائٹ ہو جائے؟ سب اپنے اپنے فون سے ایک ہی روم کوڈ کے ساتھ شامل ہوتے ہیں — کوئی ایپ نہیں، بس براؤزر میں چلتا ہے۔ تیز چھوٹے گیمز ہیں، اور ہارنے والے کو صفائی دینی پڑے گی 😅 یہاں سے شروع کریں: LINK", "m5": "اگلی فیملی کال پر یہ آزمائیں — ہر کوئی اپنے فون سے شامل ہو سکتا ہے، شروع کرنے میں بس دو منٹ لگتے ہیں، اور کسی بھی ملک سے چلتا ہے: LINK روم کوڈ آپ سنبھالیں، شور میں سنبھال لیتا ہوں 😄", "m6": "اگلی یوتھ نائٹ یا فیملی ڈے کے لیے — ایسے پارٹی گیمز جن میں ہر کوئی اپنے فون سے شامل ہو سکتا ہے، بس ایک روم کوڈ، کچھ بھی انسٹال کرنے کی ضرورت نہیں: LINK اس دن سیٹ اپ کرنے میں مجھے خوشی ہوگی۔", "m7": "برسوں خیالی اربوں کے 2% کے پیچھے بھاگتا رہا۔ آج کل ایک چھوٹی ریفرل لائن چلاتا ہوں جو کسی حقیقی چیز کا 50% دیتی ہے۔ چھوٹا۔ حقیقی۔ نقد۔ اب یہی پوری حکمتِ عملی ہے → https://refer.defimagic.io"}};
+  var MSG_IDS = ["m1","m2","m3","m4","m5","m6","m7"];
+  var EN_HTML = {};
+  MSG_IDS.forEach(function (id) { if ($(id)) EN_HTML[id] = $(id).innerHTML; });
+  function esc(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function setLang(lang) {
+    MSG_IDS.forEach(function (id) {
+      var el = $(id); if (!el) return;
+      if (lang === "en") { el.innerHTML = EN_HTML[id]; }
+      else if (I18N[lang] && I18N[lang][id]) {
+        el.innerHTML = esc(I18N[lang][id]).replace(/LINK/g, '<b class="lnk">LINK</b>');
+      }
+      if (lang === "ur") { el.setAttribute("dir", "rtl"); } else { el.removeAttribute("dir"); }
+    });
+    document.querySelectorAll("#langrow .lang").forEach(function (b) {
+      b.classList.toggle("on", b.dataset.lang === lang);
+    });
+    try { localStorage.setItem("kit_lang", lang); } catch (e) {}
+    renderLinks();
+  }
+  document.querySelectorAll("#langrow .lang").forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.dataset.lang); });
+  });
+  try { var saved = localStorage.getItem("kit_lang"); if (saved && saved !== "en") setLang(saved); } catch (e) {}
 
   function textOf(id) { return $(id).innerText; }
 
