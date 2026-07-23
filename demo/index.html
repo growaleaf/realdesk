@@ -27,10 +27,14 @@
   .wrap { width:min(680px,92vw); margin:0 auto; padding:26px 0 80px; }
   a { color:var(--green); text-decoration:none; }
   a:hover { text-decoration:underline; }
-  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
-  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; }
+  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:8px 14px; flex-wrap:wrap; }
+  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; color:var(--ink); }
+  .brand a.name:hover { text-decoration:none; }
   .brand .name .r { color:var(--green); }
-  .brand a.back { font-size:12.5px; font-weight:700; color:var(--dim); }
+  .brand nav { font-size:12.5px; font-weight:700; display:flex; flex-wrap:wrap; gap:6px 14px; }
+  .brand nav a { color:var(--dim); }
+  .brand nav a:hover { color:var(--ink); text-decoration:none; }
+  .brand nav a.here { color:var(--green); }
 
   .ribbon { background:#ffb45418; border:1px solid var(--amber); color:var(--ink); border-radius:12px;
             padding:11px 14px; font-size:13px; margin-top:22px; }
@@ -86,9 +90,16 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="brand">
-    <div class="name">THE <span class="r">REAL</span> DESK</div>
-    <a class="back" href="/">← the desk</a>
+    <div class="brand">
+    <a class="name" href="/">THE <span class="r">REAL</span> DESK</a>
+    <nav>
+      <a href="/guide/">Guide</a>
+      <a href="/demo/" class="here">Sample</a>
+      <a href="/check/">Deal Check</a>
+      <a href="/math/">The Math</a>
+      <a href="/sheet/">Deal Sheet</a>
+      <a href="/kit/">Drop Kit</a>
+    </nav>
   </div>
 
   <div class="ribbon"><b>SAMPLE LEDGER</b> — example data for illustration, on the real dashboard layout. Not a real account, not typical results, not a promise. Every real desk starts at zero; how it grows is up to its owner.</div>

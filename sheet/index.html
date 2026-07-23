@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>REAL DEAL SHEET — your one-pager, every line checkable</title>
-<meta name="description" content="The mandate world runs on documents. Here's yours — a deal sheet where every line can be verified: real product, printed commission math, named operator, $0 to join.">
+<meta name="description" content="These deals travel as paperwork. Here's yours — a one-pager where every line can be verified: real product, printed commission math, named operator, $0 to join.">
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="REAL DEAL SHEET — every line checkable">
-<meta property="og:description" content="Generate your personal deal sheet: 50% of net per sale, 90-day window, monthly PayPal from Leafwind Studios Ltd, $0 to join. In the format the groups know — except real.">
+<meta property="og:description" content="Generate your personal deal sheet: 50% of net per sale, 90-day window, monthly PayPal from Leafwind Studios Ltd, $0 to join. The familiar one-pager format, built to be checked.">
 <meta property="og:image" content="https://desk.defimagic.io/og/sheet.png">
 <meta property="og:url" content="https://desk.defimagic.io/sheet/">
 <meta property="og:type" content="website">
@@ -27,10 +27,14 @@
   .wrap { width:min(680px,92vw); margin:0 auto; padding:26px 0 80px; }
   a { color:var(--green); text-decoration:none; }
   a:hover { text-decoration:underline; }
-  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
-  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; }
+  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:8px 14px; flex-wrap:wrap; }
+  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; color:var(--ink); }
+  .brand a.name:hover { text-decoration:none; }
   .brand .name .r { color:var(--green); }
-  .brand a.back { font-size:12.5px; font-weight:700; color:var(--dim); }
+  .brand nav { font-size:12.5px; font-weight:700; display:flex; flex-wrap:wrap; gap:6px 14px; }
+  .brand nav a { color:var(--dim); }
+  .brand nav a:hover { color:var(--ink); text-decoration:none; }
+  .brand nav a.here { color:var(--green); }
   h1 { font-size:clamp(26px,5.6vw,38px); font-weight:900; letter-spacing:-.025em; line-height:1.1; margin-top:34px; }
   h1 span { color:var(--green); }
   .sub { color:var(--dim); font-size:15px; margin-top:10px; max-width:56ch; }
@@ -62,13 +66,20 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="brand">
-    <div class="name">THE <span class="r">REAL</span> DESK</div>
-    <a class="back" href="/">← the desk</a>
+    <div class="brand">
+    <a class="name" href="/">THE <span class="r">REAL</span> DESK</a>
+    <nav>
+      <a href="/guide/">Guide</a>
+      <a href="/demo/">Sample</a>
+      <a href="/check/">Deal Check</a>
+      <a href="/math/">The Math</a>
+      <a href="/sheet/" class="here">Deal Sheet</a>
+      <a href="/kit/">Drop Kit</a>
+    </nav>
   </div>
 
   <h1>REAL DEAL <span>SHEET</span></h1>
-  <p class="sub">The mandate world runs on documents — SCOs, FCOs, sheets full of unverifiable lines. Fine. Here's yours. Same shape the groups know, one difference: <b style="color:var(--ink)">every line on it can be checked by anyone, in a minute.</b></p>
+  <p class="sub">Deals in this business travel as paperwork — SCOs, FCOs, one-pagers passed from chat to chat. Here is yours, in that same familiar format, built to one different standard: <b style="color:var(--ink)">every line on it can be verified by whoever reads it, in about a minute.</b></p>
 
   <div class="card">
     <label class="label" for="code">Your promoter code</label>
@@ -85,7 +96,7 @@
       <button class="btn" id="dl" style="margin-top:0">Download PNG</button>
       <button class="btn btn2" id="watext" style="margin-top:0">Copy text version</button>
     </div>
-    <p class="note">Only real, registered codes render a sheet — that's the point of it. The text version is the same offer in plain words, ready for a chat where images feel heavy. Post it where you're known; never blast strangers. No income promises — the sheet already says what's true.</p>
+    <p class="note">Only real, registered codes render a sheet — that is what makes it worth showing. The text version is the same offer in plain words, ready for a chat where images feel heavy. Post it where you're known; never blast strangers. No income promises — the sheet already says what's true.</p>
   </div>
 
   <div class="card" style="border-style:dashed;">

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>THE MATH — 2% of zero, versus $2.28 that exists</title>
-<meta name="description" content="Put your mandate deal and a real commission deal side by side. Expected value, chain math, and the number nobody in the group chat wants to say out loud.">
+<meta name="description" content="Put a large brokered deal and a small commission deal side by side. Expected value, chain math, and what each one is actually worth.">
 <meta name="robots" content="index,follow">
 <meta property="og:title" content="THE MATH — 2% of zero is zero">
 <meta property="og:description" content="Your $50M deal at 2% commission is worth $1,000,000 — times a closing probability of zero. Run both worlds side by side.">
@@ -27,10 +27,14 @@
   .wrap { width:min(680px,92vw); margin:0 auto; padding:26px 0 80px; }
   a { color:var(--green); text-decoration:none; }
   a:hover { text-decoration:underline; }
-  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
-  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; }
+  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:8px 14px; flex-wrap:wrap; }
+  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; color:var(--ink); }
+  .brand a.name:hover { text-decoration:none; }
   .brand .name .r { color:var(--green); }
-  .brand a.back { font-size:12.5px; font-weight:700; color:var(--dim); }
+  .brand nav { font-size:12.5px; font-weight:700; display:flex; flex-wrap:wrap; gap:6px 14px; }
+  .brand nav a { color:var(--dim); }
+  .brand nav a:hover { color:var(--ink); text-decoration:none; }
+  .brand nav a.here { color:var(--green); }
   h1 { font-size:clamp(26px,5.6vw,38px); font-weight:900; letter-spacing:-.025em; line-height:1.1; margin-top:34px; }
   h1 span { color:var(--green); }
   .sub { color:var(--dim); font-size:15px; margin-top:10px; max-width:56ch; }
@@ -66,13 +70,20 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="brand">
-    <div class="name">THE <span class="r">REAL</span> DESK</div>
-    <a class="back" href="/">← the desk</a>
+    <div class="brand">
+    <a class="name" href="/">THE <span class="r">REAL</span> DESK</a>
+    <nav>
+      <a href="/guide/">Guide</a>
+      <a href="/demo/">Sample</a>
+      <a href="/check/">Deal Check</a>
+      <a href="/math/" class="here">The Math</a>
+      <a href="/sheet/">Deal Sheet</a>
+      <a href="/kit/">Drop Kit</a>
+    </nav>
   </div>
 
   <h1>THE <span>MATH</span></h1>
-  <p class="sub">Two deals, side by side: the one in your deal groups, and the one on this desk. Same arithmetic both worlds use — just done out loud.</p>
+  <p class="sub">Two deals, side by side: a large brokered deal, and the one on this desk. The same arithmetic applies to both — here it is written out in full.</p>
 
   <div class="secH">Deal A — the one you're chasing</div>
   <div class="card">
@@ -111,7 +122,7 @@
   </div>
 
   <div class="punch">
-    <b>The line that matters:</b> a million dollars at probability zero is worth less than $2.28 at probability one. Everyone in your groups knows the first half of that sentence. The ones who act on the second half start running networks that pay — sized however they choose to build them. The real prize isn't the $2.28 — it's finding out, once and for real, that commission can actually arrive. After that, everything you build is built on ground.
+    <b>The line that matters:</b> a million dollars at probability zero is worth less than $2.28 at probability one. The first half of that is familiar to anyone who has worked a large deal. Acting on the second half is how people start building networks that actually pay — sized however they choose to build them. The real prize is not the $2.28; it is a deal whose outcome answers to your effort. After that, everything you build stands on solid ground, and how big it gets is up to you.
   </div>
 
   <a class="cta" href="/">See the deal that multiplies by one →</a>

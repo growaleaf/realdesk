@@ -27,10 +27,14 @@
   .wrap { width:min(680px,92vw); margin:0 auto; padding:26px 0 80px; }
   a { color:var(--green); text-decoration:none; }
   a:hover { text-decoration:underline; }
-  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
-  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; }
+  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:8px 14px; flex-wrap:wrap; }
+  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; color:var(--ink); }
+  .brand a.name:hover { text-decoration:none; }
   .brand .name .r { color:var(--green); }
-  .brand a.back { font-size:12.5px; font-weight:700; color:var(--dim); }
+  .brand nav { font-size:12.5px; font-weight:700; display:flex; flex-wrap:wrap; gap:6px 14px; }
+  .brand nav a { color:var(--dim); }
+  .brand nav a:hover { color:var(--ink); text-decoration:none; }
+  .brand nav a.here { color:var(--green); }
   h1 { font-size:clamp(26px,5.6vw,38px); font-weight:900; letter-spacing:-.025em; line-height:1.1; margin-top:34px; }
   h1 span { color:var(--green); }
   .sub { color:var(--dim); font-size:15px; margin-top:10px; max-width:58ch; }
@@ -81,9 +85,16 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="brand">
-    <div class="name">THE <span class="r">REAL</span> DESK</div>
-    <a class="back" href="/">← the desk</a>
+    <div class="brand">
+    <a class="name" href="/">THE <span class="r">REAL</span> DESK</a>
+    <nav>
+      <a href="/guide/">Guide</a>
+      <a href="/demo/">Sample</a>
+      <a href="/check/">Deal Check</a>
+      <a href="/math/">The Math</a>
+      <a href="/sheet/">Deal Sheet</a>
+      <a href="/kit/" class="here">Drop Kit</a>
+    </nav>
   </div>
 
   <h1>THE DROP <span>KIT</span></h1>
@@ -159,7 +170,7 @@ The desk: https://desk.defimagic.io</pre>
   </div>
 
   <div class="rules">
-    <b>The three ways to lose your desk:</b> blasting strangers (spam voids your balance — it's in <a href="https://accentle.com/partners/terms/" rel="noopener" style="color:var(--red); text-decoration:underline;">the terms</a>), promising income (screenshots-as-bait is the mandate world's trick, and it terminates here), and buying through your own link. Drop where you're known. Say what's true. Let people check. That discipline is why your link is worth something.
+    <b>The three ways to lose your desk:</b> blasting strangers (spam voids your balance — it's in <a href="https://accentle.com/partners/terms/" rel="noopener" style="color:var(--red); text-decoration:underline;">the terms</a>), promising income (income screenshots as bait — that ends your account here), and buying through your own link. Drop where you're known. Say what's true. Let people check. That discipline is why your link is worth something.
   </div>
 
   <div class="foot">

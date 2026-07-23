@@ -30,12 +30,14 @@
   a { color:var(--green); text-decoration:none; }
   a:hover { text-decoration:underline; }
 
-  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
-  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; }
+  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:8px 14px; flex-wrap:wrap; }
+  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; color:var(--ink); }
+  .brand a.name:hover { text-decoration:none; }
   .brand .name .r { color:var(--green); }
-  .brand nav { font-size:12.5px; font-weight:700; }
-  .brand nav a { color:var(--dim); margin-left:12px; }
+  .brand nav { font-size:12.5px; font-weight:700; display:flex; flex-wrap:wrap; gap:6px 14px; }
+  .brand nav a { color:var(--dim); }
   .brand nav a:hover { color:var(--ink); text-decoration:none; }
+  .brand nav a.here { color:var(--green); }
 
   .hero { margin:40px 0 8px; }
   .eyebrow { font-size:12px; font-weight:800; letter-spacing:.16em; color:var(--green); text-transform:uppercase; }
@@ -150,12 +152,13 @@
 <body>
 <div class="wrap">
 
-  <div class="brand">
-    <div class="name">THE <span class="r">REAL</span> DESK</div>
+    <div class="brand">
+    <a class="name" href="/">THE <span class="r">REAL</span> DESK</a>
     <nav>
       <a href="/guide/">Guide</a>
       <a href="/demo/">Sample</a>
       <a href="/check/">Deal Check</a>
+      <a href="/math/">The Math</a>
       <a href="/sheet/">Deal Sheet</a>
       <a href="/kit/">Drop Kit</a>
     </nav>
@@ -352,7 +355,7 @@
     <div class="toolrow">
       <a class="tool" href="/check/"><span class="t">DEAL <span>CHECK</span></span><span class="d">Paste any offer you're sent. Red flags, chain math, verdict — free, on your phone.</span></a>
       <a class="tool" href="/math/"><span class="t">THE <span>MATH</span></span><span class="d">Run both worlds side by side — and see the throttle.</span></a>
-      <a class="tool" href="/sheet/"><span class="t">DEAL <span>SHEET</span></span><span class="d">Your one-pager, in the format the groups know — every line checkable.</span></a>
+      <a class="tool" href="/sheet/"><span class="t">DEAL <span>SHEET</span></span><span class="d">Your one-pager, in the familiar format — every line checkable.</span></a>
       <a class="tool" href="/kit/"><span class="t">DROP <span>KIT</span></span><span class="d">Ready-made messages, and the map of which chat each one belongs in.</span></a>
       <a class="tool" href="/guide/"><span class="t">THE <span>GUIDE</span></span><span class="d">Everything in plain words — the modes, the money flow, your first hour.</span></a>
       <a class="tool" href="/demo/"><span class="t">SAMPLE <span>LEDGER</span></span><span class="d">A link compounding for 18 months — example data on the real dashboard.</span></a>

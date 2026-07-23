@@ -27,10 +27,14 @@
   .wrap { width:min(680px,92vw); margin:0 auto; padding:26px 0 80px; }
   a { color:var(--green); text-decoration:none; }
   a:hover { text-decoration:underline; }
-  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
-  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; }
+  .brand { display:flex; align-items:baseline; justify-content:space-between; gap:8px 14px; flex-wrap:wrap; }
+  .brand .name { font-weight:900; letter-spacing:.04em; font-size:15px; color:var(--ink); }
+  .brand a.name:hover { text-decoration:none; }
   .brand .name .r { color:var(--green); }
-  .brand a.back { font-size:12.5px; font-weight:700; color:var(--dim); }
+  .brand nav { font-size:12.5px; font-weight:700; display:flex; flex-wrap:wrap; gap:6px 14px; }
+  .brand nav a { color:var(--dim); }
+  .brand nav a:hover { color:var(--ink); text-decoration:none; }
+  .brand nav a.here { color:var(--green); }
   h1 { font-size:clamp(26px,5.6vw,38px); font-weight:900; letter-spacing:-.025em; line-height:1.1; margin-top:34px; }
   h1 span { color:var(--green); }
   .sub { color:var(--dim); font-size:15px; margin-top:10px; max-width:56ch; }
@@ -95,9 +99,16 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="brand">
-    <div class="name">THE <span class="r">REAL</span> DESK</div>
-    <a class="back" href="/">← the desk</a>
+    <div class="brand">
+    <a class="name" href="/">THE <span class="r">REAL</span> DESK</a>
+    <nav>
+      <a href="/guide/">Guide</a>
+      <a href="/demo/">Sample</a>
+      <a href="/check/" class="here">Deal Check</a>
+      <a href="/math/">The Math</a>
+      <a href="/sheet/">Deal Sheet</a>
+      <a href="/kit/">Drop Kit</a>
+    </nav>
   </div>
 
   <h1>DEAL <span>CHECK</span></h1>
@@ -132,7 +143,7 @@
       <li><b>Is joining free — with no fee arriving at any later "stage"?</b> <span class="ours">THIS DESK: $0.00 at every stage — no paid stage exists. A fee at any point would fail our own test.</span></li>
       <li><b>Can you verify your own numbers without begging a human?</b> <span class="ours">THIS DESK: <a href="/#ledger">a live ledger</a>, computed from real charges every time you ask.</span></li>
     </ol>
-    <p class="test-note">A real deal passes all five in under a minute. A mandate deal fails the first question and hides behind "procedure" for the other four.</p>
+    <p class="test-note">A real deal passes all five in under a minute. Deals built on this pattern fail the first question, and answer the other four with "procedure".</p>
   </div>
 
   <div class="cta">
@@ -173,7 +184,7 @@
       why:"LOI → ICPO → FCO → NCNDA → IMFPA is not how anything real is bought or sold anywhere on earth. The procedure exists to feel official, keep you in the chain, and set up the fee request." },
     { t:"Chain talk", w:3,
       re:/(seller|buyer).{0,12}mandate|mandate to the (seller|buyer)|direct to (the )?(seller|buyer|refinery|owner|source)|no (broker )?chain|chain of (brokers|command)|commission structure|[0-9](\.[0-9])? ?% (closed|open)|fee protection agreement|paymaster/i,
-      why:"'Direct to seller, no chain' is said exclusively by people inside long chains. Count the brokers: every 'mandate' between money and goods is standing on a percent, and the percents sum to a number no real counterparty will ever sign." },
+      why:"'Direct to seller, no chain' is most often written from inside a long chain. Count the intermediaries: each one between the money and the goods needs a percent, and those percents sum to a number no real counterparty will sign." },
     { t:"Crypto OTC bait", w:3,
       re:/BTC.{0,25}OTC|OTC.{0,25}(BTC|bitcoin)|USDT.{0,20}(TRC ?20|ERC ?20)|below market (rate|price)|(gross|net) discount.{0,20}(BTC|coin)|buyer.{0,20}(ready|standing by).{0,30}(POF|funds|escrow)|per coin.{0,20}discount|\bM[- ]?T[- ]?N\b.{0,40}(deal|allocation|bulk|discount)/i,
       why:"Nobody sells bitcoin or bulk airtime 'below market' to strangers — the market buys at market, instantly, with no chain. A discount that exists only for you is the hook of the advance-fee play." },
@@ -228,7 +239,7 @@
     } else if (score <= 9) {
       cls = "v-high";
       big = "HIGH RISK — this has the anatomy of the deals that never close.";
-      why = "Multiple structural markers of the mandate world. In the documented history of these patterns, the money only ever moves one direction: from the broker, in 'fees'. Do not send anyone anything.";
+      why = "Multiple structural markers of advance-fee fraud. In the documented history of these patterns, the money moves in one direction only: from the intermediary, as 'fees'. Do not send anyone anything.";
     } else {
       cls = "v-high";
       big = "THE PATTERN — this is the machine itself.";
